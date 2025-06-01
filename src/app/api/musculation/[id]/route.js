@@ -2,10 +2,10 @@ import { NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import MusculationActivity from '@/models/MusculationActivity';
 
-export async function DELETE(request: Request, context: { params: { id: string } }) {
+export async function DELETE(request, { params }) {
   try {
     await connectDB();
-    await MusculationActivity.findByIdAndDelete(context.params.id);
+    await MusculationActivity.findByIdAndDelete(params.id);
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(

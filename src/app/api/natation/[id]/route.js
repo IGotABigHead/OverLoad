@@ -2,13 +2,10 @@ import { NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import NatationActivity from '@/models/NatationActivity';
 
-// Simuler une base de données en mémoire
-let activities: any[] = [];
-
-export async function DELETE(request: Request, context: { params: { id: string } }) {
+export async function DELETE(request, { params }) {
   try {
     await connectDB();
-    await NatationActivity.findByIdAndDelete(context.params.id);
+    await NatationActivity.findByIdAndDelete(params.id);
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(
