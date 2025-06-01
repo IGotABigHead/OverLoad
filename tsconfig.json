@@ -27,7 +27,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/api/course/[id]/route.js"
+    "src/app/api/course/[id]/route.js",
+    "src/app/api/natation/[id]/route.js",
+    "src/app/api/musculation/[id]/route.js",
+    "src/app/api/padel/[id]/route.js"
   ],
   "exclude": ["node_modules"]
 }
