@@ -35,20 +35,33 @@ export default function NatationPage() {
 
   const handleAddActivity = async (activity: CreateNatationActivity) => {
     try {
+      // Remove client-side _id from nages before sending
+      const activityToSend = {
+        ...activity,
+        nages: activity.nages.map(nage => {
+          const { _id, ...rest } = nage;
+          return rest;
+        }),
+      };
+
       const response = await fetch('/api/natation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(activity),
+        body: JSON.stringify(activityToSend),
       });
 
-      if (!response.ok) throw new Error("Erreur lors de l'ajout de la séance");
+      const data = await response.json();
 
-      const newActivity = await response.json();
-      setActivities(prev => [newActivity, ...prev]);
+      if (!response.ok) {
+        throw new Error(data.error || "Erreur lors de l'ajout de la séance");
+      }
+
+      setActivities(prev => [data, ...prev]);
       setCurrentPage(1); // Retour à la première page après l'ajout
     } catch (err) {
+      console.error("Erreur lors de l'ajout de l'activité:", err);
       setError(err instanceof Error ? err.message : 'Une erreur est survenue');
     }
   };

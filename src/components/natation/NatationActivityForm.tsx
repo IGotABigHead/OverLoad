@@ -53,7 +53,7 @@ export default function NatationActivityForm({ onSubmit }: NatationActivityFormP
     const { name, value } = e.target;
     setCurrentNage(prev => ({
       ...prev,
-      [name]: value,
+      [name]: name === 'distance' ? Number(value) : value,
     }));
   };
 
