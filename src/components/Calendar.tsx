@@ -109,6 +109,9 @@ export default function Calendar({ onDateSelect }: CalendarProps) {
 
     const { type, activity } = selectedActivity;
 
+    // Temporarily prevent rendering the overlay to debug black screen issue
+    return null; // Comment out or remove this line if the Calendar overlay is not the issue
+
     const renderMusculationDetails = (activity: MusculationActivity) => (
       <div className="space-y-4">
         <h3 className="text-lg font-semibold">Séance de musculation</h3>

@@ -107,7 +107,7 @@ export default function PadelPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 md:ml-20 mt-30">
+    <div className="container mx-auto px-4 py-8 md:ml-20 mt-30 pr-30">
       <h1 className="text-3xl font-bold mb-8">Mes activités Padel</h1>
 
       <div className="mb-6">

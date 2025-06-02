@@ -51,14 +51,14 @@ export default function Navbar() {
       {/* Overlay pour mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0  bg-opacity-10 z-40 md:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Navbar */}
       <nav
-        className={`fixed left-0 top-0 h-screen w-16 bg-white shadow-lg z-20 transform transition-transform duration-200 ease-in-out ${
+        className={`fixed left-0 top-0 h-screen w-16 bg-white shadow-lg z-50 transform transition-transform duration-200 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
